@@ -1,0 +1,7 @@
+0 switch 142 164 
+1 switch 120 301 
+2 and 251 246 0 1 
+3 not 399 250 5 
+4 output 480 250 3 
+5 connector 315 264 2 
+6 output 474 383 5 

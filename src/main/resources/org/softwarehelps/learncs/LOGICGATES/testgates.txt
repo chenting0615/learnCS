@@ -1,0 +1,8 @@
+0 nand 417 191 6 7 
+1 nor 421 283 6 7 
+2 xor 422 385 6 7 
+3 output 506 189 0 
+4 output 505 281 1 
+5 output 508 382 2 
+6 switch 118 171 
+7 switch 117 397 

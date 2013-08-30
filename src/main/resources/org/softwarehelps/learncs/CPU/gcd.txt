@@ -1,0 +1,16 @@
+0  LOD  14
+1  SUB  15
+2  JZR  10
+3  JNG  6
+4  STO  14
+5  JMP  0
+6  LOD  15
+7  SUB  14
+8  STO  15
+9  JMP  0
+10  STP  0
+11  DAT  0
+12  DAT  0
+13  DAT  0
+14  DAT  18
+15  DAT  24

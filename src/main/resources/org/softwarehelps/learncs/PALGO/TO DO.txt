@@ -1,0 +1,8 @@
+1.  ending keywords, translate into end
+
+          incl. endif, endfor, endwhile
+
+2.   The logical negation operator  so we can say       if ! (x == 5)
+
+3.   fixtype() so we can't change the type of a variable
+

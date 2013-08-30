@@ -1,0 +1,2 @@
+1-20-03     In Translator.java, I added statements that turn
+            endwhile, endif, endfor, etc. into plain ends.

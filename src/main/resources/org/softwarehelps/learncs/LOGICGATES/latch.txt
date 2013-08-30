@@ -1,0 +1,12 @@
+8 switch 141 177 
+9 switch 147 374 
+10 output 659 186 14 
+11 output 660 367 15 
+12 nor 323 186 8 16 
+13 nor 327 367 17 9 
+14 connector 489 207 12 
+15 connector 488 388 13 
+16 connector 246 262 19 
+17 connector 247 341 18 
+18 connector 489 251 14 
+19 connector 483 333 15 
