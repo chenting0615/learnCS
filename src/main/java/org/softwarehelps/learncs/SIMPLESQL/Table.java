@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.SIMPLESQL;
+
 public class Table {
      public String name;
      public String[] fieldnames;

@@ -1,3 +1,7 @@
+package org.softwarehelps.learncs.LOGICGATES;
+
+/* This file was automatically generated from a .mac file. */
+
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;

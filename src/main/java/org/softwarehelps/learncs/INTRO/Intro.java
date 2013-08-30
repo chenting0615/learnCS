@@ -1,7 +1,7 @@
-import java.util.*;
+package org.softwarehelps.learncs.INTRO;
+
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.applet.*;
 
 public class Intro extends Applet implements ActionListener

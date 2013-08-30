@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.FUNCGROWTH;
+
 import java.awt.*;
 import java.awt.event.*;
 

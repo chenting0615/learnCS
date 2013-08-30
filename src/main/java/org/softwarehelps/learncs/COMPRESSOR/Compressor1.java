@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.COMPRESSOR;
+
 /*
     This does keyword encoding for compression
 */

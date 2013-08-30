@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.PALGO;
+
 //-------------------------------------------------------------------
 //   NameDB -- DataBase of names (variables and defined functions).
 //

@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.ELIZA;
+
 import java.util.*;
 
 public class StringList {

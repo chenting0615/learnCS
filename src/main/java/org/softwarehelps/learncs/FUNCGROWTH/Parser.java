@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.FUNCGROWTH;
+
 //--------------------------------------------------------------------
 //  Parser.java
 //

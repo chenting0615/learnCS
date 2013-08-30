@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.PALGO;
+
 import java.util.*;
 
 public class Translator {

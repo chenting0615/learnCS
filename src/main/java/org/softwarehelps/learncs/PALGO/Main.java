@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.PALGO;
+
 public class Main {
      public static Palgo p;
      public static Popup errWindow;

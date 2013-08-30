@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.SIMPLESQL;
+
 import java.util.*;
 
 public class StringList {

@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.COLORS;
+
 import java.awt.*;
 import java.awt.event.*;
 

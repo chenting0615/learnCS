@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.CPU;
+
 import java.awt.*;
 import java.awt.event.*;
 

@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.FUNCGROWTH;
+
 import java.util.*;
 import java.io.*;
 import java.awt.*;

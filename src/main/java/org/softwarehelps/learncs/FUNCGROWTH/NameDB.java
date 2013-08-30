@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.FUNCGROWTH;
+
 //-------------------------------------------------------------------
 //   NameDB -- DataBase of names (variables and defined functions).
 //

@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.CPU;
+
 import java.util.*;
 
 public class StringList {

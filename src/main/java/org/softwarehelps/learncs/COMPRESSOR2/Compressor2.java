@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.COMPRESSOR2;
+
 /*
     This does Huffman encoding compression
 */

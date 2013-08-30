@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.DISKSCHED;
+
 import java.util.*;
 
 public class U {

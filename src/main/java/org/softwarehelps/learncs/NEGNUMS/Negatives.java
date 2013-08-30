@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.NEGNUMS;
+
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;

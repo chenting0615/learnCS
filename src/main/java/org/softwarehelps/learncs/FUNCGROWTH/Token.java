@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.FUNCGROWTH;
+
 //  Issues to resolve... what is the connection between intval
 //  and doubleval and value itself?  I'm confused!
 

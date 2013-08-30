@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.NETWORK;
+
 import java.util.*;
 
 public class StringList {

@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.NETWORK;
+
 /*
     This program simulates many stations and how they route packets
     to each other.

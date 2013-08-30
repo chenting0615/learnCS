@@ -1,3 +1,5 @@
+package org.softwarehelps.learncs.TEXTCODES;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
