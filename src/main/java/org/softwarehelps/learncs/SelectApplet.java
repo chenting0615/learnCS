@@ -1,16 +1,17 @@
 package org.softwarehelps.learncs;
 
 import java.awt.Button;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.InputStream;
 import java.util.Scanner;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
 /**
@@ -21,14 +22,11 @@ import javax.swing.JTextArea;
  */
 public class SelectApplet extends JPanel {
     
-    GridBagConstraints c;
-    
     SelectApplet() {
         
-        setLayout(new GridBagLayout());        
         start();
         
-        addTitle("Explorations in Computer Science");
+        //addTitle("Explorations in Computer Science");
         
         addLab("Lab 1: Introduction to the Labs");
         addApplet("Introduction", "INTRO", 
@@ -140,44 +138,75 @@ public class SelectApplet extends JPanel {
                 + "\nthe search and the graph is reasonably large, the applet "
                 + "\nwill take a very long time to finish!");
 
-        addEnd();
+        end();
     }
+    
+    GridBagConstraints cOuter;
+    //JList labsList;
+    //DefaultListModel labsListModel;
+    JTabbedPane labsPane;
+    JComponent lab;    
+    GridBagConstraints cLab;
     
     final void start() {
-        c = new GridBagConstraints();
-        c.fill = GridBagConstraints.NONE;
-        c.gridy = 0;
-        c.ipadx = 15;
-        c.ipady = 0;
+        
+        setLayout(new GridBagLayout());        
+        cOuter = new GridBagConstraints();
+        
+        cOuter.anchor = GridBagConstraints.CENTER;
+        cOuter.ipadx = 15; cOuter.ipady = 15;
+        
+        labsPane = new JTabbedPane(JTabbedPane.TOP, 
+                JTabbedPane.WRAP_TAB_LAYOUT);        
+        add(labsPane,cOuter);
+        cOuter.gridy++;
     }
     
-    final void addTitle(String title) {
-        JLabel label = new JLabel(title);
-        label.setFont(new Font("Verdana", Font.BOLD, 18));
-        c.gridx = 0;
-        c.gridwidth = 4;
-        c.ipady = 20;
-        c.anchor = GridBagConstraints.CENTER;
-        add(label, c);
-        c.gridwidth = 1;
-        c.ipady = 0;
-        c.gridy++;
-        
+    final void end() {
+        endLab();
+        cOuter.weighty = 1.0;
+        add(new JLabel(" "),cOuter);
+        cOuter.weighty = 0.0;
     }
     
     final void addLab(String title) {
+                
+        String[] titleParts = title.split(":",2);
+        String labName = titleParts[0];
+        String labTitle = titleParts[1].trim();
+
+        if (lab != null) {
+            endLab();            
+        }
         
-        c.gridx = 0;
-        c.ipady = 20;
-        add(new JLabel(" "), c);
-        c.ipady = 0;
-        c.gridy++;
+        lab = new JPanel();
+        labsPane.addTab(labName, lab);
+        lab.setLayout(new GridBagLayout());
         
-        c.gridwidth = 4;
-        c.anchor = GridBagConstraints.LINE_START;
-        add(new JLabel(" "+title), c);
-        c.gridwidth = 1;
-        c.gridy++;
+        if (cLab == null) {
+            cLab = new GridBagConstraints();
+            cLab.anchor = GridBagConstraints.FIRST_LINE_START;                
+            cLab.ipadx = 15; cLab.ipady = 5;
+        }
+        cLab.gridx = 0; cLab.gridy = 0;        
+        lab.add(new JLabel(" "), cLab);
+        cLab.gridx++;
+        cLab.gridy++;
+        cLab.gridwidth = 3;
+        lab.add(new JLabel(title), cLab);
+        cLab.gridwidth = 1;
+        cLab.gridx = 1;
+        cLab.gridy++;
+    }
+    
+    final void endLab() {
+        
+        cLab.weightx = 1.0;
+        cLab.weighty = 1.0;
+        cLab.gridx = 4;
+        lab.add(new JLabel(" "), cLab);        
+        cLab.weightx = 0.0;
+        cLab.weighty = 0.0;
     }
     
     final void addApplet(String title, final String folder, String description) {
@@ -187,15 +216,9 @@ public class SelectApplet extends JPanel {
             // don't show applets that aren't installed correctly
             return;
         }
-        
-        c.gridx = 0;
-        add(new JLabel(" "), c);
-        c.gridy++;
-        
-        c.ipadx = 30;
-        add(new JLabel(" "), c);
-        c.ipadx = 0;
-        
+
+        lab.add(new JLabel(" "), cLab);
+        cLab.gridy++;
         Button button = new Button(title);
         button.addActionListener(new ActionListener() {
             @Override
@@ -203,31 +226,24 @@ public class SelectApplet extends JPanel {
                 startApplet(ea);
             }
         });
-        c.gridx = 1;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.anchor = GridBagConstraints.CENTER;
-        add(button, c);
+        cLab.fill = GridBagConstraints.HORIZONTAL;        
+        lab.add(button, cLab);
+        cLab.gridx++;
         
-        c.gridx = 2;
-        add(new JLabel(" "), c);
+        lab.add(new JLabel(" "),cLab);
+        cLab.gridx++;
         
         JTextArea textArea = new JTextArea();  
         textArea.setColumns(35);        
         textArea.setBackground(this.getBackground());
         textArea.setText(description);
-        c.anchor = GridBagConstraints.LINE_START;
-        c.gridx = 3;
-        add(textArea, c);
-        
-        c.gridy++;                
-    }
-    
-    final void addEnd() {
-        c.weightx = 1.0;
-        c.weighty = 1.0;
-        c.gridx = 4;
-        add(new JLabel(" "), c);
-    }
+        textArea.setAlignmentY(JTextArea.CENTER_ALIGNMENT);
+        cLab.anchor = GridBagConstraints.WEST;
+        cLab.fill = GridBagConstraints.NONE;
+        lab.add(textArea, cLab);
+        cLab.gridx = 1;
+        cLab.gridy++;                
+    }        
     
     public AppletLauncher makeExpressionsApplet(String folderName) {
         
