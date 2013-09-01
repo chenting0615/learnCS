@@ -2,8 +2,7 @@ package org.softwarehelps.learncs;
 
 import java.applet.Applet;
 import java.awt.Dimension;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.Frame;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFrame;
@@ -71,19 +70,31 @@ public class AppletLauncher {
                    IllegalAccessException,
                    ClassNotFoundException {
         
-        Applet applet = (Applet)getAppletClass().newInstance();
-        if (appletWindow == null) {
-            appletWindow = new JFrame();
-            appletWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            appletWindow.setSize(new Dimension(width, height+EXTRA_HEIGHT));
-            appletWindow.add(applet);
-            appletWindow.setVisible(true);
+        Object appletObject = getAppletClass().newInstance();        
+        if (appletObject instanceof Applet) {
+            Applet applet = (Applet)appletObject;
+            if (appletWindow == null) {
+                appletWindow = new JFrame();
+                appletWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                appletWindow.setSize(new Dimension(width, height+EXTRA_HEIGHT));
+                appletWindow.add(applet);
+                appletWindow.setVisible(true);
+            } else {
+                // bring window to front
+                appletWindow.setVisible(true);
+                appletWindow.toFront();
+                appletWindow.repaint();
+            }
+            if (applet instanceof Applet) {
+                ((Applet)applet).init();
+            }
+        } else if (appletObject instanceof Frame) {
+            Frame appletFrame = (Frame)appletObject;
+            appletFrame.setVisible(true);
+            // TODO: 2 many of these applets exit with System.exit(1) causing the main window to exit            
         } else {
-            // bring window to front
-            appletWindow.setVisible(true);
-            appletWindow.toFront();
-            appletWindow.repaint();
+            throw new Error("Applet type not recognised for "
+                    + appletObject.getClass().getCanonicalName());
         }
-        applet.init();
     }
 }
