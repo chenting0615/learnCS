@@ -280,6 +280,9 @@ public class SelectApplet extends JPanel {
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(this, "Class Not Found: "
                     + ae.className, "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Throwable ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", 
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 }
