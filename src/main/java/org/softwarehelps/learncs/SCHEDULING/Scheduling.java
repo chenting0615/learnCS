@@ -333,6 +333,7 @@ public class Scheduling extends Applet
           makeJobs();
 
           int maxtime = 0;
+          // TODO: 2 when run with learnCS.AppletLauncher jobs == null
           for (int i=0; i<jobs.length; i++) 
                maxtime += jobs[i].timeRequired;
           gchart = new GanttChart(jobs.length, /*startx*/5, 

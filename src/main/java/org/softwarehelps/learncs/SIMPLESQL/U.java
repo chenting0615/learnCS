@@ -393,6 +393,7 @@ public class U {
      }
 
      public static void cleanCommas (String[] tokens) {
+         // TODO: 2 gets there with tokens == null when run from learnCS.AppletLauncher
           for (int i=0; i<tokens.length; i++)
                if (tokens[i] != null && tokens[i].endsWith(","))
                     tokens[i] = tokens[i].substring(0,tokens[i].length()-1);

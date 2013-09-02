@@ -349,6 +349,7 @@ public class DiskScheduler extends Applet implements ActionListener
           return n;
      }
 
+     // TODO: may not be working correctly, it seems to just hide text rather highlight it
      private void highlight (int n) {
           String s = requestsTA.getText();
           int newline = 0;
