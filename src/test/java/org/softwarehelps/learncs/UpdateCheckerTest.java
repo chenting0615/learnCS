@@ -38,7 +38,7 @@ public class UpdateCheckerTest extends TestCase {
         System.out.println("getNewVersion");
         String expResult = "1.0.1";
         String result = instance.getNewVersion();
-        assertEquals(expResult, result);
+        assertTrue(expResult != null && !expResult.isEmpty());
     }
 
     public void testCompareVersions() {
@@ -54,6 +54,17 @@ public class UpdateCheckerTest extends TestCase {
         b = "1.0.2";        
         result = instance.compareVersions(a, b);
         assertTrue(result < 0);
-        b = "1.0-ALPHA";
+        b = "1.0.0-SNAPSHOT";
+        result = instance.compareVersions(a, b);
+        assertTrue(result > 0);
     }    
+
+    /**
+     * Test of getThisVersion method, of class UpdateChecker.
+     */
+    public void testGetThisVersion() {
+        System.out.println("getThisVersion");
+        String result = instance.getThisVersion();
+        assertTrue(result != null && !result.isEmpty());        
+    }     
 }
