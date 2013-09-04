@@ -27,12 +27,17 @@ public class AppletLauncher {
     final static Pattern findWidth = Pattern.compile(
             "width\\s*=\\s*\\W?(\\d+)", Pattern.CASE_INSENSITIVE);
         
+    String title;
     String packageName;
     String className;
     int height;
     int width;
     Class appletClass;
     JFrame appletWindow;
+    
+    public void setTitle(String title) {
+        this.title = title;
+    }
     
     public void setPackageName(String packageName) {
         this.packageName = packageName;
@@ -75,6 +80,9 @@ public class AppletLauncher {
             Applet applet = (Applet)appletObject;
             if (appletWindow == null) {
                 appletWindow = new JFrame();
+                if (title != null) {
+                    appletWindow.setTitle(title);
+                }
                 appletWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 appletWindow.setSize(new Dimension(width, height+EXTRA_HEIGHT));
                 appletWindow.add(applet);
@@ -85,11 +93,12 @@ public class AppletLauncher {
                 appletWindow.toFront();
                 appletWindow.repaint();
             }
-            if (applet instanceof Applet) {
-                ((Applet)applet).init();
-            }
+            ((Applet)applet).init();            
         } else if (appletObject instanceof Frame) {
             Frame appletFrame = (Frame)appletObject;
+            if (title != null) {
+                appletFrame.setTitle(title);
+            }
             appletFrame.setVisible(true);
             // TODO: 2 many of these applets exit with System.exit(1) causing the main window to exit            
         } else {

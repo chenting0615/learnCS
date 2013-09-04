@@ -216,6 +216,7 @@ public class SelectApplet extends JPanel {
             // don't show applets that aren't installed correctly
             return;
         }
+        ea.setTitle(title);
 
         lab.add(new JLabel(" "), cLab);
         cLab.gridy++;
