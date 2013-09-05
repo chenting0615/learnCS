@@ -1,9 +1,7 @@
 package org.softwarehelps.learncs.REALS;
 
-import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.applet.*;
 
 public class Reals extends Applet 
@@ -24,6 +22,7 @@ public class Reals extends Applet
 
      Choice exampleCH;
 
+     @Override
      public void init() {
           setLayout(null);
           Color acolor = new Color(246,227,218);
@@ -148,16 +147,24 @@ public class Reals extends Applet
           repaint();
      }
 
-     public void actionPerformed(ActionEvent e)
-     {
-          if (e.getSource() == realinputTF ||
-              e.getSource() == displayB) {
-               if (realinputTF.getText().length() == 0)
-                    return;
-               if (!toScientificNotation()) return;
-               toBinary();
-          }
-     }
+    /**
+     * Called when 'Display Representations' button displayB is pressed, or 
+     * Enter key pressed in 'real number' text entry field realinputTF.
+     * 
+     * @param e 
+     */
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == realinputTF
+                || e.getSource() == displayB) {
+            if (realinputTF.getText().length() == 0) {
+                return;
+            }
+            if (!toScientificNotation()) {
+                return;
+            }
+            toBinary();
+        }
+    }
 
      public void itemStateChanged (ItemEvent e) {
           realinputTF.setText(exampleCH.getSelectedItem());
@@ -172,6 +179,7 @@ public class Reals extends Applet
      public void componentMoved(ComponentEvent e) {}
      public void componentShown(ComponentEvent e) {}
 
+     @Override
      public void paint(Graphics g)
      {
           if (buffer == null || gg == null) return;
@@ -187,10 +195,16 @@ public class Reals extends Applet
           g.drawImage(buffer,0,0,this);
      }
 
+     @Override
      public void update (Graphics g) {
           paint (g);
      }
 
+     /**
+      * Convert value in realinputTF text field, to base 
+      * 10 mantissa & exponent.
+      * @return 
+      */
      private boolean toScientificNotation() {
           if (!U.isReal(realinputTF.getText())) {
                realinputTF.setBackground(Color.pink);
@@ -229,6 +243,11 @@ public class Reals extends Applet
           return true;
      }
 
+     /**
+      * Convert value in realinputTF text field, to base 
+      * 10 mantissa & exponent.
+      * @return 
+      */
      private void toBinary() {
           double x = U.atod(realinputTF.getText());         
           int sign = 0;
@@ -239,8 +258,8 @@ public class Reals extends Applet
 
           int exponent = 0;
           if (x != 0) {
-               if (x > 1) {
-                    while (x > 1) {
+               if (x >= 1) {
+                    while (x >= 1) {
                          exponent++;
                          x /= 2.0;
                     }
