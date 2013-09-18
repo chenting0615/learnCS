@@ -436,7 +436,7 @@ public class Cpu extends Frame
                new WindowAdapter() {
                     public void windowClosing (WindowEvent we) {
                          dispose();
-                         System.exit(1);
+                         // System.exit(1);
                     }
                }    
           );
@@ -1070,7 +1070,6 @@ public class Cpu extends Frame
      public void run (int tempnumsteps) {
           numsteps = tempnumsteps;
           running = true;
-System.out.println("Cpu:1076: run(): running = true");          
           new Thread() {
                public void run() {
                     mustStop = false;
