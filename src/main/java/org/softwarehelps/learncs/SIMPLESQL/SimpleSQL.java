@@ -143,7 +143,7 @@ public class SimpleSQL extends Frame
              new WindowAdapter() {
                 public void windowClosing (WindowEvent we) {
                      dispose();
-                     S// ystem.exit(1);
+                     // System.exit(1);
                 }
              }
           );
