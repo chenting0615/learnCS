@@ -2,11 +2,9 @@ package org.softwarehelps.learncs.CPU;
 
 /* This file was automatically generated from a .mac file. */
 
-import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.applet.*;
 
 public class Cpu extends Frame
         implements ActionListener, ComponentListener, ItemListener
@@ -469,7 +467,7 @@ public class Cpu extends Frame
                     run(1000);
           }
 
-          if (e.getSource() == stepB) 
+          if (e.getSource() == stepB)
                run(1);
 
           if (e.getSource() == advanceB) {
@@ -1072,6 +1070,7 @@ public class Cpu extends Frame
      public void run (int tempnumsteps) {
           numsteps = tempnumsteps;
           running = true;
+System.out.println("Cpu:1076: run(): running = true");          
           new Thread() {
                public void run() {
                     mustStop = false;
@@ -1118,6 +1117,7 @@ public class Cpu extends Frame
                          delay(400);
                          kount++;
                     }
+                    running = false;
                }
           }.start();
      }
