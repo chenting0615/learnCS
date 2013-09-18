@@ -192,7 +192,7 @@ public class LogicGates extends Frame
                new WindowAdapter() {
                     public void windowClosing (WindowEvent we) {
                          dispose();
-                         System.exit(1);
+                         //System.exit(1);
                     }
                }    
           );

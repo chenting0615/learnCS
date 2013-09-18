@@ -137,7 +137,7 @@ public class Semnet extends Frame implements ActionListener,
                new WindowAdapter() {
                     public void windowClosing (WindowEvent we) {
                          dispose();
-                         System.exit(1);
+                         // System.exit(1);
                     }
                }    
           );

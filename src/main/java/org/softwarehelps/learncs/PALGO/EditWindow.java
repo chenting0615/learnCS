@@ -112,7 +112,7 @@ public class EditWindow extends Frame implements ActionListener,
           addWindowListener(
                new WindowAdapter() {
                     public void windowClosing (WindowEvent we) {
-                         System.exit(0);
+                         // System.exit(0);
                     }
                }    
           );
